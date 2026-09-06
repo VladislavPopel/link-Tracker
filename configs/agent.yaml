@@ -1,0 +1,27 @@
+kafka:
+  brokers:
+    - localhost:29092
+    - localhost:29094
+    - localhost:29095
+  input-topic: link.raw-updates
+  output-topic: link.processed-updates
+  group-id: ai-agent-consumer
+  input-topic-dlq: link.raw-updates-dlq
+
+filtering:
+  stop-words:
+    - spam
+    - ads
+    - promo
+  excluded-authors:
+    - bot-user
+    - #Test
+  min-length: 20
+
+summarization:
+  threshold: 500
+  ai-enabled: false
+  # Hugging Face API:
+  # ai-enabled: true
+  # ai-url: 
+  # ai-token: 
